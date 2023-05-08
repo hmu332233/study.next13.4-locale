@@ -1,5 +1,6 @@
+'use client'
+import { useDictionary } from '@/contexts/DictionaryContext';
 import Button from '../../components/HelloButton'
-import { getDictionary } from './dictionaries';
 
 type Props = {
   params: {
@@ -8,12 +9,12 @@ type Props = {
 }
 
 async function Home({ params: { lang }}: Props) {
-  const dictionary = await getDictionary(lang);
+  const t = useDictionary();
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div>lang: {lang}</div>
-      <div>hello: {dictionary.hello}</div>
-      <div>server: {dictionary.server}</div>
+      <div>hello: {t('hello')}</div>
+      <div>server: {t('server')}</div>
       <Button />
     </main>
   )
