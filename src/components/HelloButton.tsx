@@ -1,3 +1,4 @@
+'use client'
 import { useDictionary } from "@/contexts/DictionaryContext";
 
 function Button() {
